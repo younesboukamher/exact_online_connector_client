@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_exact_online_sync_job_tree" model="ir.ui.view">
+            <field name="name">exact_online.job.tree</field>
+            <field name="model">exact_online.job</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="create_date"/>
+                    <field name="method"/>
+                    <field name="res_model"/>
+                    <field name="res_ids"/>
+                    <field name="fields_to_update"/>
+                    <field name="company_id"/>
+                    <field name="exception"/>
+                    <button name="run" type="object" icon="fa-play" string="Run"/>
+                    <button name="re_run" type="object" icon="fa-refresh" string="Re Run"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="search_exact_online_sync_jobs" model="ir.ui.view">
+            <field name="name">exact_online.job.search</field>
+            <field name="model">exact_online.job</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="res_model"/>
+                    <separator/>
+                    <filter name="to sync" string="To sync" domain="[('state', '=', 'to sync')]"/>
+                    <filter name="exception" string="Exception" domain="[('state', 'in', ['except_odoo', 'except_exact'])]"/>
+                    <filter name="syncing" string="Syncing" domain="[('state', '=', 'syncing')]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_exact_online_sync_jobs" model="ir.actions.act_window">
+            <field name="name">Exact Online Sync Jobs</field>
+            <field name="res_model">exact_online.job</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem parent="base.menu_custom" id="menu_exact_online" name="Exact Online"/>
+        <menuitem parent="menu_exact_online" id="menu_exact_online_jobs" name="Sync Jobs" action="action_view_exact_online_sync_jobs"/>
+    </data>
+</odoo>

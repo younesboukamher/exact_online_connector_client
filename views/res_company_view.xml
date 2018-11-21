@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_res_company_form" model="ir.ui.view">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Exact online">
+                        <group>
+                            <field name="exact_online_connected" groups="base.group_no_one"/>
+                        </group>
+                        <button name="action_connect_to_exact_online"
+                                type="object"
+                                string="Connect Odoo with Exact Online"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('exact_online_connected', '=', True)]}"
+                        />
+                        <button name="action_relink_to_exact_online"
+                                type="object"
+                                string="Relink your Connector"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('exact_online_connection_status', '!=', 'relink')]}"
+                        />
+                        <group groups="base.group_no_one">
+                            <field name="exact_online_uuid"/>
+                        </group>
+                        <group attrs="{'invisible': [('exact_online_connected', '=', False)]}">
+                            <field name="exact_online_connection_status" readonly="1"/>
+                            <field name="exact_online_plan" attrs="{'invisible': [('exact_online_connection_status', '=', 'none')]}"/>
+                            <field name="exact_online_connection_exception" attrs="{'invisible': [('exact_online_connection_status', '!=', 'exception')]}"/>
+                            <!--field name="exact_online_default_sync_invoices" attrs="{'invisible': [('exact_online_connection_status', '=', 'none')]}"/-->
+                        </group>
+                        <field name="exact_online_can_connect" invisible="1"/>
+                        <group attrs="{'invisible': ['|', ('exact_online_can_connect', '=', False), ('exact_online_connection_status', '!=', 'init')]}">
+                            <!--field name="exact_online_master"/-->
+                            <div colspan="2"/>
+                            <button name="action_do_initial_sync" type="object" class="oe_highlight"
+                                    string="Do initial synchronisation"/>
+                            <div colspan="2" style="padding-top: 15px"/>
+                            <div colspan="2">During the initial sync your contacts and account moves will be synced with Exact Online.
+                                Please note that this can take a while before the process completes, you can continue using your Odoo.
+                            </div>
+                        </group>
+                        <group string="Checklist before making the initial connection" col="3"
+                               attrs="{'invisible': [('exact_online_connection_status', '!=', 'init')]}">
+                            <div colspan="3">
+                                You can configure the link between Exact Online and Odoo by clicking on the buttons below, in most cases you will need the 'Exact Online Code' for the items displayed after clicking on the button.<br/>
+                                You will be able to run the initial synchronisation when everything has been filled out and all the checks have completed.<br/>
+                            </div>
+                            <div colspan="3">
+                                <br/>
+                            </div>
+                            <div colspan="3" class="text-muted">The checks below are done automatically, the values you need to fill out for these entries can be found in your Exact Online Master data.</div>
+                            <field name="exact_online_payment_terms"/>
+                            <button name="action_open_exact_missing_payment_terms" type="object" class="oe_highlight"
+                                    attrs="{'invisible': [('exact_online_payment_terms', '=', True)]}"
+                                    string="Edit payment terms"/>
+                            <div colspan="3" style="padding-top: 5px"/>
+                            <field name="exact_online_journals"/>
+                            <button name="action_open_exact_missing_journals" type="object" class="oe_highlight"
+                                    attrs="{'invisible': [('exact_online_journals', '=', True)]}"
+                                    string="Edit journals"/>
+                            <div colspan="3" style="padding-top: 5px"/>
+                            <field name="exact_online_tax_codes"/>
+                            <button name="action_open_exact_missing_tax_codes" type="object" class="oe_highlight"
+                                    attrs="{'invisible': [('exact_online_tax_codes', '=', True)]}"
+                                    string="Edit tax codes"/>
+                            <div colspan="3" style="padding-top: 5px"/>
+                            <div colspan="3" class="text-muted">
+                                The checks below must are done semi-automatically, the values you need to fill out for these entries can be found in your Exact Online Master data.<br/>
+                                The button(s) call your Exact Online environment to check if there are any missing entries. If there is anything in the list you will need to create it in Exact Online or delete it in Odoo.
+                            </div>
+                            <field name="exact_online_accounts"/>
+                            <button name="action_check_exact_missing_accounts" type="object" class="oe_highlight"
+                                    attrs="{'invisible': [('exact_online_accounts', '=', True)]}"
+                                    string="Check Accounts" help="This will call Exact Online and check all your accounts to see whether they exist in Exact Online or not. Accounts that are missing will be opened in a new window."/>
+                            <div colspan="3" style="padding-top: 5px"/>
+                            <div colspan="2"/>
+                            <button name="action_exact_check_synchronisation_checklist" type="object" class="oe_highlight"
+                                    attrs="{'invisible': [('exact_online_payment_terms', '=', True), ('exact_online_journals', '=', True), ('exact_online_tax_codes', '=', True), ('exact_online_accounts', '=', True)]}"
+                                    string="Recheck checklist"/>
+                        </group>
+                        <group string="Initial sync (advanced)" attrs="{'invisible': ['|', '|', '|', ('exact_online_payment_terms', '=', False), ('exact_online_journals', '=', False), ('exact_online_tax_codes', '=', False), ('exact_online_accounts', '=', False)]}" col="1" groups="base.group_no_one">
+                            <button name="action_do_initial_partner_sync" type="object" class="oe_highlight"
+                                    string="Synchronise relations"/>
+                            <button name="action_do_initial_invoice_sync" type="object" class="oe_highlight"
+                                    string="Synchronise invoice"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>

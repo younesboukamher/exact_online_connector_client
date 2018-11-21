@@ -1,0 +1,621 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* exact_online_connector_client
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-25 13:59+0000\n"
+"PO-Revision-Date: 2018-09-25 13:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_account_account
+msgid "Account"
+msgstr "Rekening"
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_account_move
+msgid "Account Entry"
+msgstr "Boeking"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_ir_cron_channel_ids
+msgid "Add Channels"
+msgstr "Voeg kanalen toe"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_ir_cron_partner_ids
+msgid "Add Followers"
+msgstr "Volgers toevoegen"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_plan:0
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_connection_status:0
+msgid "Awaiting payment"
+msgstr "Wachten op betaling"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_plan:0
+msgid "Basic"
+msgstr "Basis"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Check Accounts"
+msgstr "Controleren rekeningen"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Checklist before making the initial connection"
+msgstr "Checklist voor het maken van de initiële verbinding"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,help:exact_online_connector_client.field_res_company_exact_online_accounts
+msgid "Checks if all the accounts needed are also present in Exact Online, check if the codes match.\n"
+"Be sure to check the Bank and Cash account since these are different by default."
+msgstr "Controleert of alle boekhoudrekeningen die nodig zijn ook aanwezig zijn in Exact Online, op basis van hun code.\n"
+"Controleer zeker de Bank en Kas rekeningen omdat deze standaard verschillen."
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,help:exact_online_connector_client.field_res_company_exact_online_journals
+msgid "Checks if there are any journals without an Exact Online code"
+msgstr "Controleert of er journalen zijn zonder Exact Online code"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,help:exact_online_connector_client.field_res_company_exact_online_payment_terms
+msgid "Checks if there are any payment terms without an Exact Online code"
+msgstr "Controleert of er betalingstermijnen zijn zonder Exact Online code"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,help:exact_online_connector_client.field_res_company_exact_online_tax_codes
+msgid "Checks if there are any tax codes without an Exact Online code"
+msgstr "Controleert of er belastingen zijn zonder Exact Online code"
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_res_company
+msgid "Companies"
+msgstr "Bedrijven"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_company_id
+msgid "Company"
+msgstr "Bedrijf"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Connect Odoo with Exact Online"
+msgstr "Verbind Odoo met Exact Online"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_connection_status:0
+msgid "Connected and working"
+msgstr "Verbonden en operationeel"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_connection_status:0
+msgid "Connected but not working"
+msgstr "Verbonden maar niet operationeel"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_connection_status:0
+msgid "Connected, initial sync required"
+msgstr "Verbonden, initiële synch. vereist"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_connection_status:0
+msgid "Connector registered, not connect to Exact Online"
+msgstr "Connector geregistreerd, niet verbonden met Exact Online"
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: exact_online_connector_client
+#: selection:exact_online.job,method:0
+msgid "Create"
+msgstr "Aanmaken"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_create_date
+msgid "Creation Date"
+msgstr "Aanmaakdatum"
+
+#. module: exact_online_connector_client
+#: selection:exact_online.job,method:0
+msgid "Delete"
+msgstr "Verwijderen"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Do initial synchronisation"
+msgstr "Doe initiële synchronisatie"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "During the initial sync your contacts and account moves will be synced with Exact Online.\n"
+"                                Please note that this can take a while before the process completes, you can continue using your Odoo."
+msgstr "Tijdens de initiële sync zullen je contacten en boekingen gesynchroniseerd worden met Exact Online.\n"
+"                                Dit proces kan een tijd in beslag nemen, ondertussen kan je je Odoo omgeving blijven gebruiken."
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Edit journals"
+msgstr "Journalen bewerken"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Edit payment terms"
+msgstr "Betalingscondities bewerken"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Edit tax codes"
+msgstr "BTW codes Bewerken"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_ir_cron_template_id
+msgid "Email Template"
+msgstr "E-mailsjabloon"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_master:0
+msgid "Exact"
+msgstr "Exact"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.menu,name:exact_online_connector_client.menu_exact_online
+msgid "Exact Online"
+msgstr "Exact Online"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_accounts
+msgid "Exact Online Accounts"
+msgstr "Exact Online rekeningen"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_can_connect
+msgid "Exact Online Can Connect"
+msgstr "Exact Online kan verbinden"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_account_bank_statement_import_journal_creation_exact_online_code
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_account_journal_exact_online_code
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_account_payment_term_exact_online_code
+msgid "Exact Online Code"
+msgstr "Exact Online code"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_connect_token
+msgid "Exact Online Connect Token"
+msgstr "Exact Online connectie token"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_connected
+msgid "Exact Online Connected"
+msgstr "Exact Online verbonden"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_connection_exception
+msgid "Exact Online Connection Exception"
+msgstr "Exact Online connectie uitzondering"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_connection_status
+msgid "Exact Online Connection Status"
+msgstr "Exact Online connectie status"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_account_move_exact_online_initial_sync
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_account_move_line_exact_online_initial_sync
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_partner_exact_online_initial_sync
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_users_exact_online_initial_sync
+msgid "Exact Online Initial Sync"
+msgstr "Exact Online initiële synch."
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_master
+msgid "Exact Online Master"
+msgstr "Exact Online Master"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_plan
+msgid "Exact Online Plan"
+msgstr "Exact Online Plan"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_account_move_exact_online_state
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_account_move_line_exact_online_state
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_partner_exact_online_state
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_users_exact_online_state
+msgid "Exact Online State"
+msgstr "Exact Online status"
+
+#. module: exact_online_connector_client
+#: model:ir.actions.act_window,name:exact_online_connector_client.action_view_exact_online_sync_jobs
+msgid "Exact Online Sync Jobs"
+msgstr "Exact Online synch. jobs"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_uuid
+msgid "Exact Online Uuid"
+msgstr "Exact Online Uuid"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_account_tax_exact_online_vat_code
+msgid "Exact Online Vat Code"
+msgstr "Exact Online BTW code"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_partner_exact_sync_invoices
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_users_exact_sync_invoices
+msgid "Exact Online: Sync invoices"
+msgstr "Exact Online: synch. facturen"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Exact online"
+msgstr "Exact Online"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_exception
+#: model:ir.ui.view,arch_db:exact_online_connector_client.search_exact_online_sync_jobs
+msgid "Exception"
+msgstr "Foutmelding"
+
+#. module: exact_online_connector_client
+#: selection:exact_online.job,state:0
+msgid "Exception @ Connector"
+msgstr "Foutmelding @ Connector"
+
+#. module: exact_online_connector_client
+#: selection:exact_online.job,state:0
+msgid "Exception @ Exact"
+msgstr "Foutmelding @ Exact"
+
+#. module: exact_online_connector_client
+#: selection:exact_online.job,state:0
+msgid "Exception @ Odoo"
+msgstr "Foutmelding @ Odoo"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_fields_to_update
+msgid "Fields To Update"
+msgstr "Velden om bij te werken"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,help:exact_online_connector_client.field_exact_online_job_fields_to_update
+msgid "Fields to update (separated by commas)"
+msgstr "Velden om bij te werken (komma gescheiden)"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_id
+msgid "ID"
+msgstr "ID"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_res_ids
+msgid "IDs to update"
+msgstr "IDs om bij de werken"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,help:exact_online_connector_client.field_exact_online_job_res_ids
+msgid "IDs used for update (separated by commas)"
+msgstr "IDs gebruikt voor update (komma gescheiden)"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,help:exact_online_connector_client.field_res_company_exact_online_default_sync_invoices
+msgid "If this box is checked, for new contacts, the invoices will be synced instead of the account moves.\n"
+"If you want this for your existing customers in Odoo you need to check the box manually on each contact."
+msgstr "Indien deze checkbox aangevinkt is, zullen voor nieuwe contacten facturen gesynchroniseerd worden ipv. enkel de boekingen.\n"
+"Indien dit ook het geval is voor nieuwe klanten gelieve voor elke klant de checkbox aan te vinken."
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Initial sync (advanced)"
+msgstr "Intiële synch. (geavanceerd)"
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_account_journal
+msgid "Journal"
+msgstr "Dagboek"
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_account_move_line
+msgid "Journal Item"
+msgstr "Boeking"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_journals
+msgid "Journals"
+msgstr "Dagboeken"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job___last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_method
+msgid "Method"
+msgstr "Methode"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_res_model
+msgid "Model to update"
+msgstr "Model om bij te werken"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_connection_status:0
+msgid "Never connected"
+msgstr "Nooit verbonden"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_master:0
+msgid "None"
+msgstr "Geen"
+
+#. module: exact_online_connector_client
+#: selection:account.move,exact_online_state:0
+#: selection:account.move.line,exact_online_state:0
+msgid "Nothing to sync"
+msgstr "Niets te synch."
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_master:0
+msgid "Odoo"
+msgstr "Odoo"
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_account_payment_term
+msgid "Payment Terms"
+msgstr "Betalingscondities"
+
+#. module: exact_online_connector_client
+#: model:account.payment.term,note:exact_online_connector_client.account_payment_term_rembours
+msgid "Payment condition: Rembours"
+msgstr "Betalingsconditie: Rembours"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_payment_terms
+msgid "Payment terms"
+msgstr "Betalingscondities"
+
+#. module: exact_online_connector_client
+#: code:addons/exact_online_connector_client/models/account_move.py:44
+#, python-format
+msgid "Please fill out the Exact Online code for Journal %s before creating this"
+msgstr "Gelieve de Exact Online code in te vullen voor Journaal %s voordat je dit aanmaakt"
+
+#. module: exact_online_connector_client
+#: code:addons/exact_online_connector_client/models/res_partner.py:49
+#: code:addons/exact_online_connector_client/models/res_partner.py:51
+#, python-format
+msgid "Please fill out the Exact Online code for Payment term %s before creating this partner"
+msgstr "Gelieve de Exact Online code in te vullen voor Betalingsconditie %s voordat je deze relatie aanmaakt"
+
+#. module: exact_online_connector_client
+#: code:addons/exact_online_connector_client/models/res_partner.py:59
+#: code:addons/exact_online_connector_client/models/res_partner.py:63
+#, python-format
+msgid "Please fill out the Exact Online code for Payment term %s before updating this partner"
+msgstr "Gelieve de Exact Online code in te vullen voor Betalingsconditie %s voordat je deze relatie bewerkt"
+
+#. module: exact_online_connector_client
+#: model:ir.actions.server,name:exact_online_connector_client.cron_process_exact_sync_jobs_ir_actions_server
+#: model:ir.cron,cron_name:exact_online_connector_client.cron_process_exact_sync_jobs
+#: model:ir.cron,name:exact_online_connector_client.cron_process_exact_sync_jobs
+msgid "Process Exact Online sync jobs"
+msgstr "Verwerk Exact Online synch. jobs"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_exact_online_sync_job_tree
+msgid "Re Run"
+msgstr "Opnieuw"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Recheck checklist"
+msgstr "Hercheck checklist"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Relink your Connector"
+msgstr "Vernieuw koppeling connector"
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_connection_status:0
+msgid "Relinking of Connector required"
+msgstr "Vernieuwing van de koppeling met de connector nodig"
+
+#. module: exact_online_connector_client
+#: model:account.payment.term,name:exact_online_connector_client.account_payment_term_rembours
+msgid "Rembours"
+msgstr "Rembours"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_exact_online_sync_job_tree
+msgid "Run"
+msgstr "Uitvoeren"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,help:exact_online_connector_client.field_res_company_exact_online_master
+msgid "Select Odoo if you do not have any data present in Exact Online\n"
+"Select Exact if your current Odoo environment is empty and you have data present in Exact Online\n"
+"Select None if there is data present in both, then you need to fill out the Exact codes of your customers in Odoo"
+msgstr "Selecteer Odoo indien je nog geen data in Exact Online hebt.\n"
+"Select Exact indien je reeds data in Exact Online hebt en je geen data in Odoo hebt.\n"
+"Selecteer geen idien er data in beide aanwezig is en je nog geen data in Exact Online hebt."
+
+#. module: exact_online_connector_client
+#: selection:res.company,exact_online_plan:0
+msgid "Standard"
+msgstr "Standaard"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_exact_online_job_state
+msgid "State"
+msgstr "Status"
+
+#. module: exact_online_connector_client
+#: selection:account.move,exact_online_state:0
+#: selection:account.move.line,exact_online_state:0
+#: selection:res.partner,exact_online_state:0
+msgid "Sync Exception"
+msgstr "Uitz. tijdens synch."
+
+#. module: exact_online_connector_client
+#: model:ir.ui.menu,name:exact_online_connector_client.menu_exact_online_jobs
+msgid "Sync Jobs"
+msgstr "Synchronisatie jobs"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_default_sync_invoices
+msgid "Sync invoices"
+msgstr "Synchroniseer facutren"
+
+#. module: exact_online_connector_client
+#: selection:account.move,exact_online_state:0
+#: selection:account.move.line,exact_online_state:0
+#: selection:res.partner,exact_online_state:0
+msgid "Synced"
+msgstr "Gesynch."
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Synchronise invoice"
+msgstr "Synchroniseer facutren"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "Synchronise relations"
+msgstr "Synchroniseer relaties"
+
+#. module: exact_online_connector_client
+#: selection:account.move,exact_online_state:0
+#: selection:account.move.line,exact_online_state:0
+#: selection:exact_online.job,state:0
+#: model:ir.ui.view,arch_db:exact_online_connector_client.search_exact_online_sync_jobs
+#: selection:res.partner,exact_online_state:0
+msgid "Syncing"
+msgstr "Aan het synch."
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_account_tax
+msgid "Tax"
+msgstr "BTW"
+
+#. module: exact_online_connector_client
+#: model:ir.model.fields,field_description:exact_online_connector_client.field_res_company_exact_online_tax_codes
+msgid "Tax codes"
+msgstr "BTW codes"
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "The checks below are done automatically, the values you need to fill out for these entries can be found in your Exact Online Master data."
+msgstr "Onderstaande checks gebeuren automatisch, de waarden die je zal moeten invullen bij onderstaande items kan je terugvinden in je stamgegevens van Exact Online."
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "The checks below must are done semi-automatically, the values you need to fill out for these entries can be found in your Exact Online Master data.<br/>\n"
+"                                The button(s) call your Exact Online environment to check if there are any missing entries. If there is anything in the list you will need to create it in Exact Online or delete it in Odoo."
+msgstr "Onderstaande check gebeuren semi-automatisch, de waarden die je zal moeten invullen bij onderstaande items kan je terugvinden in je stamgegevens van Exact Online.<br/>\n"
+"                                De knop(pen) roepen je Exact Online omgeving op om te controleren of er ontbrekende items zijn. De ontbrekende items kan je daarna terugvinden in de lijst en zal je moeten aanmaken in Exact Online of moeten verwijderen uit Odoo."
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "This will call Exact Online and check all your accounts to see whether they exist in Exact Online or not. Accounts that are missing will be opened in a new window."
+msgstr "Deze actie zal al je rekeningen afchecken tegen Exact Online om te kijken of ze bestaan. Rekeningen die nog niet bestaan zullen geopend worden in een nieuw vester."
+
+#. module: exact_online_connector_client
+#: selection:account.move,exact_online_state:0
+#: selection:account.move.line,exact_online_state:0
+#: selection:exact_online.job,state:0
+#: model:ir.ui.view,arch_db:exact_online_connector_client.search_exact_online_sync_jobs
+#: selection:res.partner,exact_online_state:0
+msgid "To sync"
+msgstr "Te synch."
+
+#. module: exact_online_connector_client
+#: code:addons/exact_online_connector_client/models/exact.py:79
+#, python-format
+msgid "Unknown method: %s"
+msgstr "Onbekende methode: %s"
+
+#. module: exact_online_connector_client
+#: selection:exact_online.job,method:0
+msgid "Update"
+msgstr "Update"
+
+#. module: exact_online_connector_client
+#: code:addons/exact_online_connector_client/models/res_company.py:198
+#, python-format
+msgid "You are not connected to Exact Online, please Connect this company to Exact Online."
+msgstr "Je bent niet verbonden met Exact Online, gelieve dit bedrijf te verbinden met Exact Online."
+
+#. module: exact_online_connector_client
+#: model:ir.ui.view,arch_db:exact_online_connector_client.view_res_company_form
+msgid "You can configure the link between Exact Online and Odoo by clicking on the buttons below, in most cases you will need the 'Exact Online Code' for the items displayed after clicking on the button.<br/>\n"
+"                                You will be able to run the initial synchronisation when everything has been filled out and all the checks have completed.<br/>"
+msgstr "Je kan de koppeling tussen je Exact Online en Odoo omgeving verder configureren door op de onderstaande knoppen te klikken. In de meeste gevallen zal je na een klik op de knop de 'Exact Online code' voor de items in de lijst moeten invullen.<br/>\n"
+"                                Je zal een initiële synchronisatie pas kunnen doen nadat alle informatie ingevuld is en alle checks voltooid zijn.<br/>"
+
+#. module: exact_online_connector_client
+#: code:addons/exact_online_connector_client/models/exact.py:48
+#, python-format
+msgid "You have outstanding payments that need to be made for the connector to operate.Please contact Callista (https://callista.be/page/contactus) for more information."
+msgstr "Je hebt openstaande betalingen die in orde moeten gebracht worden om de connector te laten werken. Gelieve contact op te nemen met Callista (https://callista.be/page/contactus) voor meer informatie."
+
+#. module: exact_online_connector_client
+#: code:addons/exact_online_connector_client/models/res_company.py:200
+#, python-format
+msgid "You have outstanding payments, if this is your first time syncing, you need to pay for the initial setup."
+msgstr "Je hebt openstaande betalingen, indien dit de eerste keer is dat je de synchronisatie doet, zal je de initiële set-up cost nog moeten betalen."
+
+#. module: exact_online_connector_client
+#: code:addons/exact_online_connector_client/models/res_company.py:202
+#, python-format
+msgid "You need to be in the init status to do the initial sync."
+msgstr "Je moet in de 'initializeer' status zijn om de initiële synchronisatie te doen."
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_base
+msgid "base"
+msgstr "basis"
+
+#. module: exact_online_connector_client
+#: model:ir.model,name:exact_online_connector_client.model_exact_online_job
+msgid "exact_online.job"
+msgstr "exact_online.job"
+
