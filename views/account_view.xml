@@ -31,7 +31,8 @@
             <field name="inherit_id" ref="account.view_account_journal_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='code']" position="after">
-                    <field name="exact_online_code" required="True"/>
+                    <field name="exact_online_no_sync"/>
+                    <field name="exact_online_code" attrs="{'required': [('exact_online_no_sync', '=', False)]}"/>
                 </xpath>
             </field>
         </record>

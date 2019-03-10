@@ -51,3 +51,4 @@ class AccountJournal(models.Model):
         return 'exact_online_code'
 
     exact_online_code = fields.Char()
+    exact_online_no_sync = fields.Boolean('Don\'t sync with Exact Online')

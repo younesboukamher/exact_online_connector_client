@@ -18,6 +18,7 @@ class AccountMove(models.Model):
             'ref',
         ]
 
+    create_date = fields.Datetime(readonly=True)
     exact_online_initial_sync = fields.Boolean()
     exact_online_state = fields.Selection([
         ('synced', 'Synced'),
@@ -29,25 +30,35 @@ class AccountMove(models.Model):
 
     @api.model
     def create(self, vals):
-        partner = False
-        res = False
-        if 'partner_id' in vals:
-            partner = self.env['res.partner'].browse(vals.get('partner_id'))
-        elif 'line_ids' in vals and vals.get('line_ids') and len(vals['line_ids'][0]) == 3 and vals['line_ids'][0][0] == 0 and vals['line_ids'][0][2].get('partner_id'):
-            partner = self.env['res.partner'].browse(vals['line_ids'][0][2]['partner_id'])
-        if partner and partner.exact_sync_invoices:
-            vals['exact_online_state'] = 'no'
-            res = super(AccountMove, self.with_context(syncing_exact=True)).create(vals)
-        if not res:
-            res = super(AccountMove, self.with_context(exact_no_sync_move_lines=True)).create(vals)
-        if res.journal_id and not res.journal_id.exact_online_code:
+        res = super(AccountMove, self.with_context(syncing_exact=True)).create(vals)
+        # Check if journal is OK for Exact syncing
+        if res.journal_id and not res.journal_id.exact_online_no_sync and not res.journal_id.exact_online_code:
             raise ValidationError(_('Please fill out the Exact Online code for Journal %s before creating this') % res.journal_id.name)
+        # If move was created as posted, sync immediately
+        if res.state == 'posted' and not res.journal_id.exact_online_no_sync:
+            res.exact_online_queue_create()
         return res
 
     @api.multi
-    def write(self, vals):
-        res = super(AccountMove, self).write(vals)
-        return res
+    def exact_online_queue_create(self):
+        for move in self:
+            company = move.exact_get_company()
+            # Only sync moves after the Exact Online 'block date'
+            if not company.exact_online_sync_from or (company.exact_online_sync_from and company.exact_online_sync_from <= move.date):
+                # Only sync moves for partners that don't sync their invoices and for journals for which we may sync
+                if not move.journal_id.exact_online_no_sync and (not move.partner_id or not move.partner_id.exact_sync_invoices):
+                    move.exact_online_state = 'to sync'
+                    self.env['exact_online.job'].sudo().create({
+                        'res_model': self._name,
+                        'res_ids': move.id,
+                        'method': 'create',
+                        'company_id': company.id if company else False,
+                    })
+
+    @api.multi
+    def post(self):
+        super(AccountMove, self).post()
+        self.exact_online_queue_create()
 
 
 class AccountMoveLine(models.Model):

@@ -32,9 +32,11 @@
                             <field name="exact_online_connection_exception" attrs="{'invisible': [('exact_online_connection_status', '!=', 'exception')]}"/>
                             <!--field name="exact_online_default_sync_invoices" attrs="{'invisible': [('exact_online_connection_status', '=', 'none')]}"/-->
                         </group>
+
                         <field name="exact_online_can_connect" invisible="1"/>
                         <group attrs="{'invisible': ['|', ('exact_online_can_connect', '=', False), ('exact_online_connection_status', '!=', 'init')]}">
                             <!--field name="exact_online_master"/-->
+                            <field name="exact_online_sync_from"/>
                             <div colspan="2"/>
                             <button name="action_do_initial_sync" type="object" class="oe_highlight"
                                     string="Do initial synchronisation"/>

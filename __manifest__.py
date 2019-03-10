@@ -21,6 +21,7 @@
         'security/ir.model.access.csv',
         'views/account_view.xml',
         'views/exact_online_view.xml',
+        'views/partner_view.xml',
         'views/res_company_view.xml',
     ],
     'demo': [

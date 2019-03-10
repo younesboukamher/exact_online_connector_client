@@ -43,13 +43,15 @@ class BaseModel(models.AbstractModel):
             vals['exact_online_state'] = 'to sync'
         record = super(BaseModel, self).create(vals)
         if hasattr(record, 'exact_online_state') and record.exact_online_state == 'to sync':
-            company_id = record.exact_get_company()
-            self.env['exact_online.job'].sudo().create({
-                'res_model': self._name,
-                'res_ids': record.id,
-                'method': 'create',
-                'company_id': company_id.id if company_id else False,
-            })
+            company = record.exact_get_company()
+            # Only start synching records when te initial setup is done and the initial sync can be made.
+            if company.exact_online_connected:
+                self.env['exact_online.job'].sudo().create({
+                    'res_model': self._name,
+                    'res_ids': record.id,
+                    'method': 'create',
+                    'company_id': company.id if company else False,
+                })
         return record
 
     @api.multi
@@ -142,9 +144,7 @@ class BaseModel(models.AbstractModel):
             if view_type == 'form':
                 doc = etree.XML(res['arch'])
                 button_box = doc.xpath('//div[hasclass("oe_button_box")]')
-                if button_box:
-                    for node in button_box:
-                        button_xml = """
+                button_string = """
                         <button type="object" name="action_open_exact_sync" class="oe_stat_button" readonly="1" modifiers="{&quot;readonly&quot;: true}">
                             <div class="fa fa-fw o_button_icon">
                                 <img src="/exact_online_connector_client/static/description/icon_small.png"/>
@@ -154,22 +154,17 @@ class BaseModel(models.AbstractModel):
                             </div>
                         </button>
                         """
-                        button_node = etree.fromstring(button_xml)
+                if button_box:
+                    for node in button_box:
+                        button_node = etree.fromstring(button_string)
                         node.append(button_node)
                 else:
-                    button_xml = """
-                        <div class="oe_button_box" name="button_box">
-                            <button type="object" name="action_open_exact_sync" class="oe_stat_button" readonly="1" modifiers="{&quot;readonly&quot;: true}">
-                                <div class="fa fa-fw o_button_icon">
-                                    <img src="/exact_online_connector_client/static/description/icon_small.png"/>
-                                </div>
-                                <div class="o_form_field o_stat_info">
-                                    <field name="exact_online_state" readonly="1" modifiers="{&quot;readonly&quot;: true}"/>
-                                </div>
-                            </button>
-                        </div>
-                    """
-                    button_node = etree.fromstring(button_xml)
+                    button_string = """
+                    <div class="oe_button_box" name="button_box">
+                        {}
+                    </div>
+                    """.format(button_string)
+                    button_node = etree.fromstring(button_string)
                     for node in doc.xpath('//sheet'):
                         node.insert(0, button_node)
                         break

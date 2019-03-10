@@ -35,6 +35,8 @@ class ResCompany(models.Model):
             "Select Exact if your current Odoo environment is empty and you have data present in Exact Online\n"
             "Select None if there is data present in both, then you need to fill out the Exact codes of your customers in Odoo",
         default='odoo')
+    exact_online_sync_from = fields.Datetime(help="If filled out, the connector will start syncing accounting data "
+                                                  "starting from the specified date.")
     exact_online_default_sync_invoices = fields.Boolean('Sync invoices',
                                                         help="If this box is checked, for new contacts, the invoices will be synced instead of the account moves.\n"
                                                              "If you want this for your existing customers in Odoo you need to check the box manually on each contact.")
@@ -54,6 +56,11 @@ class ResCompany(models.Model):
         ('standard', 'Standard'),
         ('advanced', 'Advanced'),
     ], default='standard', required=True, readonly=True)
+
+    @api.onchange('exact_online_master')
+    def onchange_exact_online_master(self):
+        if self.exact_online_master in ['exact', 'both']:
+            self.exact_online_sync_moves_from = fields.Datetime.now()
 
     @api.multi
     def write(self, vals):
@@ -221,6 +228,14 @@ class ResCompany(models.Model):
                         'method': 'create',
                         'company_id': self.id
                     })
+            else:
+                for rec in self.env['res.partner'].search([('exact_online_code', '!=', False)]):
+                    jobs |= jobs.create({
+                        'res_model': 'res.partner',
+                        'res_ids': rec.id,
+                        'method': 'create',
+                        'company_id': self.id
+                    })
         return jobs
 
     @api.multi
@@ -235,21 +250,14 @@ class ResCompany(models.Model):
         self.ensure_one()
         jobs = self.env['exact_online.job']
         if self.exact_online_connected:
-            if self.exact_online_master == 'odoo':
-                # if self.exact_online_default_sync_invoices:
-                #     for rec in self.env['account.invoice'].search([('company_id', '=', self.id), ('exact_online_initial_sync', '=', False)]):
-                #         jobs |= jobs.create({
-                #             'res_model': 'account.invoice',
-                #             'res_ids': rec.id,
-                #             'method': 'create',
-                #             'company_id': rec.company_id.id
-                #         })
-                # else:
-                domain = [('company_id', '=', self.id), ('exact_online_initial_sync', '=', False)]
-                if self.exact_online_plan == 'basic':
-                    domain += [('journal_id.type', '=', 'sale')]
-                elif self.exact_online_plan == 'standard':
-                    domain += [('journal_id.type', 'in', ['sale', 'purchase'])]
+            domain = [('company_id', '=', self.id), ('exact_online_initial_sync', '=', False)]
+            if self.exact_online_plan == 'basic':
+                domain += [('journal_id.type', '=', 'sale')]
+            elif self.exact_online_plan == 'standard':
+                domain += [('journal_id.type', 'in', ['sale', 'purchase'])]
+            if self.exact_online_sync_moves_from:
+                domain += [('move_date', '>=', self.exact_online_sync_moves_from)]
+            if self.exact_online_master == 'odoo' or self.exact_online_sync_moves_from:
                 for rec in self.env['account.move'].search(domain, order='date asc'):
                     jobs |= jobs.create({
                         'res_model': 'account.move',

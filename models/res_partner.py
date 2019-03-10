@@ -41,6 +41,11 @@ class ResPartner(models.Model):
         ('sync exception', 'Sync Exception')
     ], default='to sync')
     exact_sync_invoices = fields.Boolean('Exact Online: Sync invoices', default=lambda self: self.env.user.company_id.exact_online_default_sync_invoices)
+    exact_online_code = fields.Char(help="The unique 18-long index for every customer in Exact Online", size=18)
+
+    _sql_constraints = [
+        ('partner_exact_online_code_unique', 'unique (exact_online_code)', 'The Exact Online code of every partner should be unique'),
+    ]
 
     @api.model
     def create(self, vals):
